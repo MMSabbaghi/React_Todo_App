@@ -1,0 +1,47 @@
+.todo_item {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #fbbf24;
+}
+
+.completed_title {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.todo_index {
+  background-color: #fbbf24;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.btns button {
+  padding: 3px;
+  margin-left: 5px;
+  background-color: #fff;
+  outline: none;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 15px;
+}
+
+.deleteBtn {
+  border-color: rgb(224, 78, 78);
+  color: rgb(224, 78, 78);
+}
+
+.editBtn {
+  border-color: rgb(95, 92, 253);
+  color: rgb(95, 92, 253);
+}

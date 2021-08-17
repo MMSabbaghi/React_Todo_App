@@ -1,0 +1,30 @@
+.todo_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo_form input,
+.todo_form button {
+  border: #fbbf24 solid 1px;
+  outline: none;
+  padding: 10px;
+}
+
+.todo_form input {
+  border-radius: 5px 0 0 5px;
+  margin: 10px 0 10px;
+  width: 80%;
+}
+
+.todo_form button {
+  background-color: #fbbf24;
+  color: #000;
+  border-radius: 0 5px 5px 0;
+  width: 20%;
+}
+
+.todo_form button:hover {
+  background-color: #f59e0b;
+}

@@ -1,0 +1,31 @@
+.todo_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.select_status {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.select_box {
+  width: 60%;
+}
+
+.not_found {
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 480) {
+  .todo_list {
+    width: 90%;
+  }
+}
