@@ -3,7 +3,7 @@ import Select from "react-select";
 import { useCallback, useEffect, useState } from "react";
 
 const FilterTodos = ({ todos, setFilteredTodos }) => {
-  const [status, setStatus] = useState("All");
+  const [status, setStatus] = useState({ value: "All", label: "All" });
 
   const filterOptions = [
     { value: "All", label: "All" },
@@ -12,15 +12,12 @@ const FilterTodos = ({ todos, setFilteredTodos }) => {
   ];
 
   const filterTodos = useCallback(() => {
-    switch (status) {
+    switch (status.value) {
       case "Completed":
         setFilteredTodos(todos.filter((t) => t.completed));
         break;
       case "UnCompleted":
         setFilteredTodos(todos.filter((t) => !t.completed));
-        break;
-      case "All":
-        setFilteredTodos(todos);
         break;
       default:
         setFilteredTodos(todos);
@@ -37,7 +34,7 @@ const FilterTodos = ({ todos, setFilteredTodos }) => {
       <Select
         value={status}
         options={filterOptions}
-        onChange={(selectedValue) => setStatus(selectedValue.value)}
+        onChange={(selectedValue) => setStatus(selectedValue)}
         className={styles.select_box}
       />
     </div>
