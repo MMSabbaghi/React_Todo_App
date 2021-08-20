@@ -45,7 +45,7 @@ const TodoForm = () => {
       }
       setInput("");
     } else {
-      notification("error", "please enter a valisd todo!");
+      notification("error", "please enter a valid todo!");
     }
   };
 

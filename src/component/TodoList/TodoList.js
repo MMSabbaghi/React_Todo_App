@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import TodoItem from "../TodoItem/TodoItem";
 import FilterTodos from "../FilterTodos/FilterTodos";
 import {
@@ -21,7 +21,6 @@ const TodoList = () => {
   const currentTodo = useCurrentTodo();
   const setCurrentTodo = useSetCurrentTodo();
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [status, setStatus] = useState("All");
 
   const removeHandler = (id) => {
     dispatch({ type: "removeTodo", id: id });
@@ -33,45 +32,21 @@ const TodoList = () => {
 
   const completeHandler = (id) => {
     dispatch({ type: "changeCompleteStatus", id: id });
-    notification("info", "Successfully mark as completed!");
+    notification("info", "Successfully marked as completed!");
   };
-  const filterTodos = useCallback(() => {
-    switch (status) {
-      case "Completed":
-        setFilteredTodos(todos.filter((t) => t.completed));
-        break;
-      case "UnCompleted":
-        setFilteredTodos(todos.filter((t) => !t.completed));
-        break;
-      case "All":
-        setFilteredTodos(todos);
-        break;
-      default:
-        setFilteredTodos(todos);
-    }
-  }, [status, todos]);
-
-  useEffect(() => {
-    filterTodos();
-  }, [status, todos, filterTodos]);
 
   if (filteredTodos.length === 0)
     return (
       <>
-        <FilterTodos
-          onChange={(selectedValue) => setStatus(selectedValue.value)}
-          value={status}
-        />
+        <FilterTodos todos={todos} setFilteredTodos={setFilteredTodos} />
+
         <h4 className={styles.not_found}> No Todos were found! </h4>
       </>
     );
 
   return (
     <>
-      <FilterTodos
-        onChange={(selectedValue) => setStatus(selectedValue.value)}
-        value={status}
-      />
+      <FilterTodos todos={todos} setFilteredTodos={setFilteredTodos} />
 
       <div className={styles.todo_list}>
         {filteredTodos.map((todo, index) => (
