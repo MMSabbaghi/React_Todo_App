@@ -1,18 +1,19 @@
-import { NotificationManager } from "react-notifications";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function notification(type, message) {
   switch (type) {
     case "info":
-      NotificationManager.info(message, null, 2500);
+      toast.info(message);
       break;
     case "success":
-      NotificationManager.success(message, null, 2500);
+      toast.success(message);
       break;
     case "warning":
-      NotificationManager.warning(message, null, 2500);
+      toast.warning(message);
       break;
     case "error":
-      NotificationManager.error(message, null, 2500);
+      toast.error(message);
       break;
     default:
       break;

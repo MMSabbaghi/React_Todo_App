@@ -5,8 +5,8 @@ import TodoList from "../TodoList/TodoList";
 import TodosProvider from "../../Provider/TodosProvider/TodosProvider";
 import CurrentTodoProvider from "../../Provider/TodosProvider/CurrentTodoProvider";
 
-import "react-notifications/lib/notifications.css";
-import { NotificationContainer } from "react-notifications";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TodoApp = () => {
   return (
@@ -15,7 +15,7 @@ const TodoApp = () => {
         <CurrentTodoProvider>
           <TodoForm />
           <TodoList />
-          <NotificationContainer />
+          <ToastContainer />
         </CurrentTodoProvider>
       </TodosProvider>
     </div>
