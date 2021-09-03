@@ -18,7 +18,7 @@ const reducer = (state, action) => {
       let newState = [...state];
       let todoIndex = newState.findIndex((t) => t.id === action.todo.id);
       let selectedTodo = { ...newState[todoIndex] };
-      selectedTodo.title = action.title;
+      selectedTodo.title = action.todo.title;
       newState[todoIndex] = selectedTodo;
       return newState;
     }
