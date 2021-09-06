@@ -14,10 +14,12 @@ const reducer = (state, action) => {
       return state.filter((t) => t.id !== action.id);
     }
 
-    case "updateTodo": {
+    case "updateTodoTitle": {
       let newState = [...state];
       let todoIndex = newState.findIndex((t) => t.id === action.todo.id);
-      newState[todoIndex] = action.todo;
+      let selectedTodo = { ...newState[todoIndex] };
+      selectedTodo.title = action.todo.title;
+      newState[todoIndex] = selectedTodo;
       return newState;
     }
 

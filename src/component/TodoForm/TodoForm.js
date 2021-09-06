@@ -23,11 +23,10 @@ const TodoForm = () => {
 
   const updateTodo = () => {
     dispatch({
-      type: "updateTodo",
+      type: "updateTodoTitle",
       todo: {
         title: input,
         id: currentTodo.id,
-        completed: currentTodo.completed,
       },
     });
     setCurrentTodo(null);
