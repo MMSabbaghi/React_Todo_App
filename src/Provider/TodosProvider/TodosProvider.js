@@ -35,8 +35,10 @@ const reducer = (state, action) => {
   }
 };
 
+const initialTodos = [{ completed: false, id: 1, title: "test" }];
+
 const TodosProvider = ({ children }) => {
-  const [todos, dispatch] = useReducer(reducer, []);
+  const [todos, dispatch] = useReducer(reducer, initialTodos);
 
   return (
     <TodosContext.Provider value={todos}>
