@@ -40,12 +40,12 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--text-color);
-  transition: all 0.2s ease-out;
+  transition: background 0.3s;
 }
 
 .app .container {
-  margin: 0 auto;
   width: 500px;
+  margin: 100px auto 10px auto;
 }
 
 button,
@@ -58,8 +58,12 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+  .app {
+    background-size: auto 270px;
+  }
   .app .container {
     width: 90%;
+    margin-top: 70px;
   }
 }
 

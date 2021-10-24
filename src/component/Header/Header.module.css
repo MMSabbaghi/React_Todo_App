@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15vh;
-  margin-bottom: 7vh;
+  margin-bottom: 40px;
 }
 
 .header h1 {

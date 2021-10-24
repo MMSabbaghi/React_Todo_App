@@ -6,8 +6,8 @@ const FilterTodos = ({ todos, setFilteredTodos }) => {
 
   const filterOptions = [
     { value: "All", label: "All" },
+    { value: "UnCompleted", label: "Active" },
     { value: "Completed", label: "Completed" },
-    { value: "UnCompleted", label: "UnCompleted" },
   ];
 
   const filterTodos = useCallback(() => {
