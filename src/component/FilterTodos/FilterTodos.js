@@ -1,5 +1,4 @@
 import styles from "./FilterTodos.module.css";
-import Select from "react-select";
 import { useCallback, useEffect, useState } from "react";
 
 const FilterTodos = ({ todos, setFilteredTodos }) => {
@@ -30,13 +29,17 @@ const FilterTodos = ({ todos, setFilteredTodos }) => {
 
   return (
     <div className={styles.select_status}>
-      <span> filter based on : </span>
-      <Select
-        value={status}
-        options={filterOptions}
-        onChange={(selectedValue) => setStatus(selectedValue)}
-        className={styles.select_box}
-      />
+      {filterOptions.map((option) => (
+        <span
+          style={{
+            color:
+              status.value === option.value ? "var(--blue_color)" : "inherit",
+          }}
+          onClick={() => setStatus(option)}
+        >
+          {option.label}
+        </span>
+      ))}
     </div>
   );
 };

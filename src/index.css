@@ -1,16 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Sora:wght@300;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Josefin Sans", Tahoma, Verdana, sans-serif;
 }
 
 body {
-  background-color: #eee;
-  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+:root {
+  --gradient: linear-gradient(
+    to right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --blue_color: hsl(220, 98%, 61%);
+}
+
+[data-theme="light"] {
+  --bg_image: url("./assets/images/bg-desktop-light.jpg");
+  --bg_color: hsl(236, 33%, 92%);
+  --text-color: #171723;
+  --content_color: hsl(0, 0%, 98%);
+}
+
+[data-theme="dark"] {
+  --bg_image: url("./assets/images/bg-desktop-dark.jpg");
+  --bg_color: #171723;
+  --text-color: hsl(236, 33%, 92%);
+  --content_color: #25273c;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--bg_color) var(--bg_image) no-repeat;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  transition: all 0.2s ease-out;
+}
+
+.app .container {
+  margin: 0 auto;
+  width: 500px;
+}
+
+button,
+input {
+  outline: none;
 }
 
 button {
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .app .container {
+    width: 90%;
+  }
 }
 
 /*transisiton styles from css transition component*/

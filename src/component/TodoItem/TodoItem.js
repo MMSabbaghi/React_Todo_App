@@ -17,7 +17,7 @@ const TodoItem = ({ todo, todoIndex, onDelete, onEdit, onComplete }) => {
         <button className={styles.editBtn} onClick={onEdit}>
           <BiEditAlt />
         </button>
-        {!todo.completed && <button onClick={onComplete}>compoleted</button>}
+        {!todo.completed && <button onClick={onComplete}>check</button>}
       </div>
     </div>
   );

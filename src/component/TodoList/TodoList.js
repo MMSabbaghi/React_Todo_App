@@ -39,7 +39,6 @@ const TodoList = () => {
     return (
       <>
         <FilterTodos todos={todos} setFilteredTodos={setFilteredTodos} />
-
         <h4 className={styles.not_found}> No Todos were found! </h4>
       </>
     );

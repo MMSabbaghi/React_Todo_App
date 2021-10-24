@@ -1,4 +1,3 @@
-import styles from "./TodoApp.module.css";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
 
@@ -10,15 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TodoApp = () => {
   return (
-    <div className={styles.container}>
-      <TodosProvider>
-        <CurrentTodoProvider>
-          <TodoForm />
-          <TodoList />
-          <ToastContainer />
-        </CurrentTodoProvider>
-      </TodosProvider>
-    </div>
+    <TodosProvider>
+      <CurrentTodoProvider>
+        <TodoForm />
+        <TodoList />
+        <ToastContainer />
+      </CurrentTodoProvider>
+    </TodosProvider>
   );
 };
 

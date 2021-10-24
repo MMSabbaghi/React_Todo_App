@@ -15,7 +15,7 @@ const TodoForm = () => {
   const [input, setInput] = useState("");
   const inputRef = useRef();
 
-  //if the current todo changes input value is set.
+  //if the current todo changes , input value is set.
   useEffect(() => {
     setInput(currentTodo ? currentTodo.title : "");
     inputRef.current.focus();
@@ -32,7 +32,8 @@ const TodoForm = () => {
     setCurrentTodo(null);
   };
 
-  const saveHandler = () => {
+  const saveHandler = (e) => {
+    e.preventDefault();
     if (input.length > 2) {
       //add or edit todo based on current todo
       if (!currentTodo) {
@@ -48,26 +49,17 @@ const TodoForm = () => {
     }
   };
 
-  const keyPressHandler = (e) => {
-    if (e.key === "Enter") {
-      saveHandler();
-    }
-  };
-
   return (
-    <div className={styles.todo_form}>
+    <form onSubmit={saveHandler} className={styles.todo_form}>
       <input
         type="text"
         placeholder="Write an activity..."
         ref={inputRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyPress={keyPressHandler}
       />
-      <button type="button" onClick={saveHandler}>
-        {currentTodo ? "Edit" : "Add"}
-      </button>
-    </div>
+      <button type="submit">{currentTodo ? "Edit" : "Add"}</button>
+    </form>
   );
 };
 

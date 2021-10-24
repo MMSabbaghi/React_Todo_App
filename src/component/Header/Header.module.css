@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15vh;
+  margin-bottom: 7vh;
+}
+
+.header h1 {
+  color: #fff;
+  letter-spacing: 10px;
+}
