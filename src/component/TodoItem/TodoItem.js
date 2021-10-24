@@ -1,12 +1,18 @@
 import styles from "./TodoItem.module.css";
 import { BiTrashAlt, BiEditAlt } from "react-icons/bi";
+import checkImg from "../../assets/images/icon-check.svg";
 
-const TodoItem = ({ todo, todoIndex, onDelete, onEdit, onComplete }) => {
+const TodoItem = ({ todo, onDelete, onEdit, onComplete }) => {
   return (
     <div className={styles.todo_item}>
-      <span className={!todo.completed ? styles.todo_index : ""}>
-        {todoIndex}
-      </span>
+      <button
+        className={`${styles.todo_status} ${
+          todo.completed && styles.completed_todo
+        }`}
+        onClick={onComplete}
+      >
+        {todo.completed && <img src={checkImg} alt="checked" />}
+      </button>
       <p className={todo.completed ? styles.completed_title : ""}>
         {todo.title}
       </p>
@@ -17,7 +23,6 @@ const TodoItem = ({ todo, todoIndex, onDelete, onEdit, onComplete }) => {
         <button className={styles.editBtn} onClick={onEdit}>
           <BiEditAlt />
         </button>
-        {!todo.completed && <button onClick={onComplete}>check</button>}
       </div>
     </div>
   );

@@ -47,12 +47,11 @@ const TodoList = () => {
     <>
       <FilterTodos todos={todos} setFilteredTodos={setFilteredTodos} />
       <TransitionGroup className={styles.todo_list}>
-        {filteredTodos.map((todo, index) => (
+        {filteredTodos.map((todo) => (
           <CSSTransition key={todo.id} timeout={500} classNames="fade">
             <TodoItem
               key={todo.id}
               todo={todo}
-              todoIndex={index + 1}
               onDelete={() => removeHandler(todo.id)}
               onEdit={() => setCurrentTodo(todo)}
               onComplete={() => completeHandler(todo.id)}

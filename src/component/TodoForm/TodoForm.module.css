@@ -19,6 +19,10 @@
   width: 100%;
 }
 
+.todo_form input::placeholder {
+  color: #ccc;
+}
+
 .todo_form button {
   background: var(--gradient);
   color: #fff;

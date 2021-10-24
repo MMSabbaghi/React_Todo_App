@@ -17,14 +17,21 @@
   color: #ccc;
 }
 
-.todo_index {
-  background: var(--gradient);
-  color: #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 20px;
+.todo_status {
   display: grid;
   place-content: center;
+  width: 25px;
+  height: 25px;
+  border: #ccc 1px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: #ccc 1px solid;
+}
+
+.completed_todo {
+  background: var(--gradient);
+  border: none;
 }
 
 .btns button {
