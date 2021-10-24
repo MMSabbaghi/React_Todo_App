@@ -10,7 +10,6 @@ import {
   useCurrentTodo,
   useSetCurrentTodo,
 } from "../../Provider/TodosProvider/CurrentTodoProvider";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import notification from "../../utils/NotificationManager";
 
 //----------------------------------
@@ -46,19 +45,17 @@ const TodoList = () => {
   return (
     <>
       <FilterTodos todos={todos} setFilteredTodos={setFilteredTodos} />
-      <TransitionGroup className={styles.todo_list}>
+      <div className={styles.todo_list}>
         {filteredTodos.map((todo) => (
-          <CSSTransition key={todo.id} timeout={500} classNames="fade">
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              onDelete={() => removeHandler(todo.id)}
-              onEdit={() => setCurrentTodo(todo)}
-              onComplete={() => completeHandler(todo.id)}
-            />
-          </CSSTransition>
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onDelete={() => removeHandler(todo.id)}
+            onEdit={() => setCurrentTodo(todo)}
+            onComplete={() => completeHandler(todo.id)}
+          />
         ))}
-      </TransitionGroup>
+      </div>
     </>
   );
 };
