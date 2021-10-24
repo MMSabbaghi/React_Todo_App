@@ -29,8 +29,9 @@ const FilterTodos = ({ todos, setFilteredTodos }) => {
 
   return (
     <div className={styles.select_status}>
-      {filterOptions.map((option) => (
+      {filterOptions.map((option, index) => (
         <span
+          key={index}
           style={{
             color:
               status.value === option.value ? "var(--blue_color)" : "inherit",
