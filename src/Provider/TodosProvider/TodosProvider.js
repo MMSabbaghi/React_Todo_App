@@ -1,22 +1,23 @@
 import React, { useContext, useReducer } from 'react';
 
 import getRandomID from '../../utils/getRandomID';
+import types from '../types/types';
 
 const TodosContext = React.createContext();
 const TodosContextDispatcher = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'addNewTodo': {
+    case types.ADD_TASK: {
       action.todo.id = getRandomID();
       action.todo.completed = false;
       return [...state, action.todo];
     }
-    case 'removeTodo': {
+    case types.DELETE_TASK: {
       return state.filter(t => t.id !== action.id);
     }
 
-    case 'updateTodoTitle': {
+    case types.EDIT_TASK: {
       let newState = [...state];
       let todoIndex = newState.findIndex(t => t.id === action.todo.id);
       let selectedTodo = { ...newState[todoIndex] };
@@ -25,7 +26,7 @@ const reducer = (state, action) => {
       return newState;
     }
 
-    case 'changeCompleteStatus': {
+    case types.UPDATE_TASK_STATUS: {
       let newState = [...state];
       let todoIndex = newState.findIndex(t => t.id === action.id);
       let selectedTodo = { ...newState[todoIndex] };
