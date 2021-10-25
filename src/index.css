@@ -36,7 +36,7 @@ body {
 
 .app {
   min-height: 100vh;
-  background: var(--bg_color) var(--bg_image) no-repeat;
+  background: var(--bg_color) var(--bg_image) no-repeat center 13% fixed;
   display: flex;
   flex-direction: column;
   color: var(--text-color);
