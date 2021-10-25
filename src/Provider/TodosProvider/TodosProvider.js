@@ -1,31 +1,33 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer } from 'react';
+
+import getRandomID from '../../utils/getRandomID';
 
 const TodosContext = React.createContext();
 const TodosContextDispatcher = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "addNewTodo": {
-      action.todo.id = Math.floor(Math.random() * 10000);
+    case 'addNewTodo': {
+      action.todo.id = getRandomID();
       action.todo.completed = false;
       return [...state, action.todo];
     }
-    case "removeTodo": {
-      return state.filter((t) => t.id !== action.id);
+    case 'removeTodo': {
+      return state.filter(t => t.id !== action.id);
     }
 
-    case "updateTodoTitle": {
+    case 'updateTodoTitle': {
       let newState = [...state];
-      let todoIndex = newState.findIndex((t) => t.id === action.todo.id);
+      let todoIndex = newState.findIndex(t => t.id === action.todo.id);
       let selectedTodo = { ...newState[todoIndex] };
       selectedTodo.title = action.todo.title;
       newState[todoIndex] = selectedTodo;
       return newState;
     }
 
-    case "changeCompleteStatus": {
+    case 'changeCompleteStatus': {
       let newState = [...state];
-      let todoIndex = newState.findIndex((t) => t.id === action.id);
+      let todoIndex = newState.findIndex(t => t.id === action.id);
       let selectedTodo = { ...newState[todoIndex] };
       selectedTodo.completed = !selectedTodo.completed;
       newState[todoIndex] = selectedTodo;
@@ -37,7 +39,7 @@ const reducer = (state, action) => {
   }
 };
 
-const initialTodos = [{ completed: false, id: 1, title: "test" }];
+const initialTodos = [{ completed: false, id: 1, title: 'test' }];
 
 const TodosProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(reducer, initialTodos);
