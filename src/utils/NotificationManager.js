@@ -1,7 +1,13 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function notification(type, message) {
+/**
+ * @description: show notification message to user.
+ * 
+ * @param {type} 'success' | 'error' | 'warning' | 'info'
+ * @param {message} string 
+ */
+export default function openNotification(type, message) {
   switch (type) {
     case "info":
       toast.info(message);
@@ -16,6 +22,6 @@ export default function notification(type, message) {
       toast.error(message);
       break;
     default:
-      break;
+      throw new Error("Unknown notification type");
   }
 }

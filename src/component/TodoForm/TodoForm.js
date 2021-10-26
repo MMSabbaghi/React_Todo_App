@@ -7,6 +7,7 @@ import {
 import styles from "./TodoForm.module.css";
 
 import notification from "../../utils/NotificationManager";
+import types from "../../Provider/types/types";
 
 const TodoForm = () => {
   const dispatch = useTodosActions();
@@ -23,7 +24,7 @@ const TodoForm = () => {
 
   const updateTodo = () => {
     dispatch({
-      type: "updateTodoTitle",
+      type: types.EDIT_TASK,
       todo: {
         title: input,
         id: currentTodo.id,
@@ -37,7 +38,7 @@ const TodoForm = () => {
     if (input.length > 2) {
       //add or edit todo based on current todo
       if (!currentTodo) {
-        dispatch({ type: "addNewTodo", todo: { title: input } });
+        dispatch({ type: types.ADD_TASK, todo: { title: input } });
         notification("success", "Successfully aded !");
       } else {
         updateTodo();

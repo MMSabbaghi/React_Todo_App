@@ -11,6 +11,7 @@ import {
   useSetCurrentTodo,
 } from "../../Provider/TodosProvider/CurrentTodoProvider";
 import notification from "../../utils/NotificationManager";
+import types from "../../Provider/types/types";
 
 //----------------------------------
 
@@ -22,7 +23,7 @@ const TodoList = () => {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   const removeHandler = (id) => {
-    dispatch({ type: "removeTodo", id: id });
+    dispatch({ type: types.DELETE_TASK, id: id });
     if (currentTodo?.id === id) {
       setCurrentTodo(null);
     }
@@ -30,7 +31,7 @@ const TodoList = () => {
   };
 
   const completeHandler = (id) => {
-    dispatch({ type: "changeCompleteStatus", id: id });
+    dispatch({ type: types.UPDATE_TASK_STATUS, id: id });
     notification("info", "Successfully marked as completed!");
   };
 
