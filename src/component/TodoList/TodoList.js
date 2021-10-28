@@ -30,9 +30,9 @@ const TodoList = () => {
     notification("info", "Successfully removed!");
   };
 
-  const completeHandler = (id) => {
+  const completeHandler = (id, isCompleted) => {
     dispatch({ type: types.UPDATE_TASK_STATUS, id: id });
-    notification("info", "Successfully marked as completed!");
+    notification("info", `Successfully marked as ${isCompleted ? 'uncomplete' : 'completed'}!`);
   };
 
   if (filteredTodos.length === 0)
@@ -53,7 +53,7 @@ const TodoList = () => {
             todo={todo}
             onDelete={() => removeHandler(todo.id)}
             onEdit={() => setCurrentTodo(todo)}
-            onComplete={() => completeHandler(todo.id)}
+            onComplete={() => completeHandler(todo.id, todo.completed)}
           />
         ))}
       </div>
