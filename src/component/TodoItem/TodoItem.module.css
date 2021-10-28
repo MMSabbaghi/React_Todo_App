@@ -12,6 +12,11 @@
   border-bottom: none;
 }
 
+.todo_item p {
+  max-width: 70%;
+  overflow-x: hidden;
+}
+
 .completed_title {
   text-decoration: line-through;
   color: #ccc;
