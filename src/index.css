@@ -21,14 +21,14 @@ body {
 }
 
 [data-theme="light"] {
-  --bg_image_position: -10px -330px;
+  --bg_image_position: 0 -300px;
   --bg_color: hsl(236, 33%, 92%);
   --text-color: #171723;
   --content_color: hsl(0, 0%, 98%);
 }
 
 [data-theme="dark"] {
-  --bg_image_position: -10px -10px;
+  --bg_image_position: 0 0;
   --bg_color: #171723;
   --text-color: hsl(236, 33%, 92%);
   --content_color: #25273c;
