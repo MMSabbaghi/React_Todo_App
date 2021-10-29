@@ -9,3 +9,10 @@
   color: #fff;
   letter-spacing: 10px;
 }
+
+.mode_icon {
+  color: #fff;
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+}
