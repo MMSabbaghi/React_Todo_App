@@ -11,7 +11,11 @@ const TodoItem = ({ todo, onDelete, onEdit, onComplete }) => {
         }`}
         onClick={onComplete}
       >
-        {todo.completed && <img src={checkImg} alt="checked" />}
+        <img
+          src={checkImg}
+          alt="checked"
+          style={{ opacity: todo.completed ? "1" : "0" }}
+        />
       </button>
       <p className={todo.completed ? styles.completed_title : ""}>
         {todo.title}
