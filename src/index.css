@@ -21,14 +21,14 @@ body {
 }
 
 [data-theme="light"] {
-  --bg_image: url("./assets/images/bg-desktop-light.jpg");
+  --bg_image_position: -10px -330px;
   --bg_color: hsl(236, 33%, 92%);
   --text-color: #171723;
   --content_color: hsl(0, 0%, 98%);
 }
 
 [data-theme="dark"] {
-  --bg_image: url("./assets/images/bg-desktop-dark.jpg");
+  --bg_image_position: -10px -10px;
   --bg_color: #171723;
   --text-color: hsl(236, 33%, 92%);
   --content_color: #25273c;
@@ -36,14 +36,25 @@ body {
 
 .app {
   min-height: 100vh;
-  background: var(--bg_color) var(--bg_image) no-repeat center 0 fixed;
+  background-color: var(--bg_color);
   display: flex;
   flex-direction: column;
   color: var(--text-color);
   transition: background 0.3s;
 }
 
+.app::before {
+  content: "";
+  width: 100%;
+  height: 300px;
+  background: url("assets/images/bg-img-css_sprites.png") no-repeat
+    var(--bg_image_position);
+  position: fixed;
+  transition: 0.2s;
+}
+
 .app .container {
+  z-index: 1;
   width: 500px;
   margin: 100px auto 10px auto;
 }
@@ -58,8 +69,8 @@ button {
 }
 
 @media screen and (max-width: 768px) {
-  .app {
-    background-size: auto 270px;
+  .app::before {
+    height: 270px;
   }
   .app .container {
     width: 90%;
